@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="420"
+        x:Class="mysimmap_client.MainWindow"
+        Title="MySimMap"
+        Width="420"
+        SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+
+    <StackPanel Margin="20" Spacing="14">
+
+        <StackPanel Spacing="4">
+            <TextBlock Text="Email" />
+            <TextBox x:Name="EmailBox" Watermark="your@email.eu" />
+        </StackPanel>
+        <StackPanel Spacing="4">
+            <TextBlock Text="API-key" />
+            <TextBox x:Name="ApiKeyBox"
+                     PasswordChar="•"
+                     RevealPassword="{Binding #ShowKeyCheck.IsChecked}"
+                     Watermark="Find it on mysimmap.net" />
+            <CheckBox x:Name="ShowKeyCheck" Content="Show key" />
+        </StackPanel>
+
+        <Grid ColumnDefinitions="*,12,110">
+            <StackPanel Grid.Column="0" Spacing="4">
+                <TextBlock Text="X-Plane IP address" />
+                <TextBox x:Name="IpBox" Text="127.0.0.1" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Spacing="4">
+                <TextBlock Text="Port" />
+                <NumericUpDown x:Name="PortBox"
+                               Value="8086"
+                               Minimum="1"
+                               Maximum="65535"
+                               FormatString="0"
+                               ShowButtonSpinner="False" />
+            </StackPanel>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,12,80,12,80">
+            <StackPanel Grid.Column="0" Spacing="4">
+                <TextBlock Text="Callsign" />
+                <TextBox x:Name="CallsignBox" Watermark="SAS123" MaxLength="8" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Spacing="4">
+                <TextBlock Text="From" />
+                <TextBox x:Name="FromBox" Watermark="EKCH" MaxLength="4" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="4" Spacing="4">
+                <TextBlock Text="To" />
+                <TextBox x:Name="ToBox" Watermark="ENGM" MaxLength="4" />
+            </StackPanel>
+        </Grid>
+
+        <Button x:Name="StartButton"
+                Content="Start"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                Click="StartButton_Click" />
+        <StackPanel Orientation="Horizontal" Spacing="8">
+            <TextBox x:Name="ShareUrlBox" IsReadOnly="True" Width="260" Watermark="Share link appears here…" />
+            <Button Content="Copy" Click="CopyShareUrl_Click" />
+        </StackPanel>
+        <Border Padding="10" CornerRadius="4" Background="#15808080">
+            <StackPanel Spacing="6">
+                <TextBlock x:Name="StatusText" Text="Ready" TextWrapping="Wrap" />
+                <TextBlock x:Name="PositionText"
+                           FontFamily="monospace"
+                           Opacity="0.8"
+                           Text="—" />
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+    
+</Window>

@@ -1,0 +1,25 @@
+# Build output
+bin/
+obj/
+/packages/
+/_ReSharper.Caches/
+riderModule.iml
+
+# Published binaries (distribute via Releases, not in git)
+publish*/
+
+# Local config with email + API key – never commit
+config.conf
+
+# Personal notes
+noter.txt
+
+# IDE
+.idea/
+.vs/
+*.user
+*.DotSettings.user
+
+# OS
+.DS_Store
+Thumbs.db
