@@ -5,6 +5,9 @@
         <Nullable>enable</Nullable>
         <ApplicationManifest>app.manifest</ApplicationManifest>
         <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+        <Product>MySimMap</Product>
+        <AssemblyTitle>MySimMap client</AssemblyTitle>
+        <Version>0.1.0</Version>
     </PropertyGroup>
 
     <ItemGroup>
